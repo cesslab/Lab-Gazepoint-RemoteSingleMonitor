@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXSpinner?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="176.0" prefWidth="353.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.nyu.cess.controller.ConnectWaitController">
+   <children>
+      <JFXSpinner layoutX="153.0" layoutY="14.0" radius="30.0" />
+      <Label layoutX="52.0" layoutY="98.0" text="Connecting to Eye Tracker...">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="cancelButton" buttonType="RAISED" layoutX="112.0" layoutY="129.0" onAction="#cancelButtonClicked" prefHeight="40.0" prefWidth="140.0" text="CANCEL" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="165.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.nyu.cess.controller.CalibrationController">
+   <children>
+      <Button fx:id="calibrateButton" disable="true" layoutX="183.0" layoutY="116.0" mnemonicParsing="false" onAction="#calibrateButtonClicked" prefHeight="27.0" prefWidth="98.0" text="Calibrate" />
+      <Label fx:id="statusLabel" alignment="CENTER" layoutX="297.0" layoutY="116.0" prefHeight="27.0" prefWidth="200.0" text="Disconnected..." />
+      <Label alignment="CENTER_RIGHT" layoutX="2.0" layoutY="24.0" prefHeight="27.0" prefWidth="86.0" text="IP Address" />
+      <TextField layoutX="100.0" layoutY="24.0" prefHeight="27.0" prefWidth="177.0" />
+      <Label alignment="CENTER_RIGHT" layoutX="45.0" layoutY="71.0" prefHeight="27.0" prefWidth="41.0" text="Port">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Label>
+      <TextField layoutX="100.0" layoutY="71.0" prefHeight="27.0" prefWidth="177.0" />
+      <Button layoutX="60.0" layoutY="116.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="98.0" text="Connect" />
+   </children>
+</AnchorPane>
