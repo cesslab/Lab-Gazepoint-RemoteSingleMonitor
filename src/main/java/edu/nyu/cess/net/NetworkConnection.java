@@ -13,7 +13,7 @@ public class NetworkConnection {
     private static Socket socket;
     private static SocketConnectionTask socketConnectionTask;
 
-    public static boolean isConnected() {
+    static boolean isConnected() {
         return socket != null && socket.isConnected();
     }
 
@@ -29,7 +29,7 @@ public class NetworkConnection {
         new Thread(socketConnectionTask).start();
     }
 
-    public static PrintWriter getPrintWriter() {
+    static PrintWriter getPrintWriter() {
         try {
             return new PrintWriter(socket.getOutputStream(), true);
         } catch (IOException e) {
@@ -38,7 +38,7 @@ public class NetworkConnection {
         return null;
     }
 
-    public static BufferedReader getBufferedReader() {
+    static BufferedReader getBufferedReader() {
         try {
             return new BufferedReader(new InputStreamReader(socket.getInputStream()));
         } catch (IOException e) {
@@ -50,6 +50,16 @@ public class NetworkConnection {
     public static void cancelConnect() {
         if (socketConnectionTask != null) {
             socketConnectionTask.cancel();
+        }
+    }
+
+    public static void close() {
+        if (socketConnectionTask != null) {
+            try {
+                socket.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 package edu.nyu.cess;
 
+import edu.nyu.cess.net.NetworkConnection;
 import edu.nyu.cess.scene.SceneName;
 import edu.nyu.cess.ui.MainPane;
 import javafx.application.Application;
@@ -16,6 +17,7 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(new MainPane(SceneName.CONNECT)));
         primaryStage.show();
         primaryStage.setTitle("CESS Eye Tracker Controller");
+        primaryStage.setOnCloseRequest(e -> NetworkConnection.close());
         primaryStage.show();
     }
 }
