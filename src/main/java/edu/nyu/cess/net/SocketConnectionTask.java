@@ -7,7 +7,7 @@ import java.net.Socket;
 public class SocketConnectionTask extends Task<Socket> {
     private String ipAddress;
     private int portNumber;
-    public SocketConnectionTask(String ipAddress, int portNumber) {
+    SocketConnectionTask(String ipAddress, int portNumber) {
         this.ipAddress = ipAddress;
         this.portNumber = portNumber;
     }
