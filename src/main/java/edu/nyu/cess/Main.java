@@ -2,10 +2,11 @@ package edu.nyu.cess;
 
 import edu.nyu.cess.net.NetworkConnection;
 import edu.nyu.cess.scene.SceneName;
-import edu.nyu.cess.ui.MainPane;
+import edu.nyu.cess.scene.SceneNavigator;
 import javafx.application.Application;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
+
+import java.util.HashMap;
 
 public class Main extends Application {
     public static void main(String[] args) {
@@ -14,10 +15,16 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        primaryStage.setScene(new Scene(new MainPane(SceneName.CONNECT)));
-        primaryStage.show();
         primaryStage.setTitle("CESS Eye Tracker Controller");
         primaryStage.setOnCloseRequest(e -> NetworkConnection.close());
-        primaryStage.show();
+
+        HashMap<SceneName, String> scenes = new HashMap<>();
+        scenes.put(SceneName.CONNECT, "/connect.fxml");
+        scenes.put(SceneName.CONNECT_WAIT, "/wait.fxml");
+        scenes.put(SceneName.CALIBRATE, "/calibrate.fxml");
+
+        SceneNavigator.initialize(primaryStage, scenes);
+        SceneNavigator.setScene(SceneName.CONNECT);
+        SceneNavigator.show();
     }
 }
