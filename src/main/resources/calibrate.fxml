@@ -1,28 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="254.0" prefWidth="564.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.nyu.cess.controller.CalibrationController">
+<StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.nyu.cess.controller.CalibrationController">
    <children>
-      <JFXButton fx:id="displayScreenButton" buttonType="RAISED" contentDisplay="TOP" graphicTextGap="10.0" layoutX="96.0" layoutY="76.0" onAction="#displayScreenClicked" style="-fx-background-color: #FFFFFF;" text="Display Screen">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </JFXButton>
-      <JFXButton fx:id="startCalibrationButton" buttonType="RAISED" layoutX="94.0" layoutY="126.0" onAction="#calibrateButtonClicked" style="-fx-background-color: #FFFFFF;" text="Start Calibration " />
-      <JFXButton fx:id="nextButton" buttonType="RAISED" graphicTextGap="10.0" layoutX="259.0" layoutY="201.0" style="-fx-background-color: #FFFFFF;" text="Next" />
-      <Label layoutX="181.0" layoutY="14.0" text="Calibrate Eye Tracker">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label fx:id="feedbackLabel" layoutX="375.0" layoutY="104.0">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
+      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+         <top>
+            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Calibrate Eye Tracker" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <BorderPane.margin>
+                  <Insets top="10.0" />
+               </BorderPane.margin>
+            </Label>
+         </top>
+         <bottom>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="600.0" spacing="10.0" BorderPane.alignment="CENTER">
+               <children>
+                  <JFXButton fx:id="startCalibrationButton" buttonType="RAISED" onAction="#calibrateButtonClicked" style="-fx-background-color: #FFFFFF;" text="Start Calibration " />
+                  <JFXButton fx:id="displayScreenButton" buttonType="RAISED" contentDisplay="TOP" graphicTextGap="10.0" onAction="#displayScreenClicked" style="-fx-background-color: #FFFFFF;" text="Display Screen">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="nextButton" buttonType="RAISED" graphicTextGap="10.0" style="-fx-background-color: #FFFFFF;" text="Data Collection Options" />
+               </children>
+            </HBox>
+         </bottom>
+         <center>
+            <VBox alignment="CENTER" BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="feedbackLabel" alignment="CENTER">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
    </children>
-</AnchorPane>
+</StackPane>
