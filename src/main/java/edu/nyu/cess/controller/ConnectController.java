@@ -5,7 +5,6 @@ import com.jfoenix.controls.JFXTextField;
 import edu.nyu.cess.net.NetworkConnection;
 import edu.nyu.cess.scene.SceneName;
 import edu.nyu.cess.scene.SceneNavigator;
-import edu.nyu.cess.ui.MainPane;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
@@ -45,12 +44,10 @@ public class ConnectController implements Initializable, Updatable {
 
     private void connectionFailed() {
         SceneNavigator.setScene(SceneName.CONNECT);
-        MainPane.displaySlidingMessage("Connection Failed!");
     }
 
     private void connectionSucceeded() {
         SceneNavigator.setScene(SceneName.CALIBRATE);
-        MainPane.displaySlidingMessage("Connected.");
 
         Preferences pref = Preferences.userNodeForPackage(ConnectController.class);
         pref.put("ipAddress", ipTextField.getText());
