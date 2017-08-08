@@ -1,0 +1,9 @@
+.sliding-notification {
+    -fx-background-color: rgba(0, 0, 0, 0.8);
+}
+
+.sliding-notification .label {
+    -fx-text-fill: white;
+    -fx-font-size: 22px;
+    -fx-text-alignment: center;
+}
