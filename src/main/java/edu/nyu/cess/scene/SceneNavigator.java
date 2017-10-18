@@ -1,7 +1,6 @@
 package edu.nyu.cess.scene;
 
 import edu.nyu.cess.controller.Swappable;
-import edu.nyu.cess.ui.SlidingNotification;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
