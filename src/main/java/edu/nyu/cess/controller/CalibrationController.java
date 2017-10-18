@@ -17,6 +17,8 @@ import java.util.ResourceBundle;
 public class CalibrationController implements Swappable, Initializable {
     @FXML
     JFXButton displayScreenButton;
+    @FXML
+    JFXButton hideScreenButton;
 
     @FXML
     JFXButton startCalibrationButton;
@@ -66,6 +68,26 @@ public class CalibrationController implements Swappable, Initializable {
 
     }
 
+    @FXML
+    public void displayScreenClicked() {
+        handleServiceRequest(showScreenService);
+    }
+
+    @FXML
+    public void hideScreenButtonClicked() {
+
+    }
+
+    @FXML
+    public void calibrateButtonClicked() {
+        handleServiceRequest(calibrationService);
+    }
+
+    @FXML
+    public void displayScreenFailed() {
+        feedbackLabel.setText("Failed to Display Calibration Screen");
+    }
+
     private void handleServiceRequest(Service service) {
         if (service.getState() == Service.State.SUCCEEDED) {
             service.reset();
@@ -78,31 +100,17 @@ public class CalibrationController implements Swappable, Initializable {
 
     }
 
-    @FXML
-    public void displayScreenClicked() {
-        handleServiceRequest(showScreenService);
-    }
-
-    public void screenDisplayed() {
+    private void screenDisplayed() {
         feedbackLabel.setText("Calibration Screen Displayed");
+        displayScreenButton.setDisable(true);
     }
 
-    public void calibrationSucceeded() {
-
-    }
-
-    public void calibrationFailed() {
+    private void calibrationSucceeded() {
 
     }
 
-    @FXML
-    public void calibrateButtonClicked() {
-        handleServiceRequest(calibrationService);
-    }
+    private void calibrationFailed() {
 
-    @FXML
-    public void displayScreenFailed() {
-        feedbackLabel.setText("Failed to Display Calibration Screen");
     }
 
 }

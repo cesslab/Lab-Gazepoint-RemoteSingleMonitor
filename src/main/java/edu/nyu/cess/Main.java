@@ -1,5 +1,6 @@
 package edu.nyu.cess;
 
+import edu.nyu.cess.net.NetworkConnection;
 import edu.nyu.cess.scene.SceneName;
 import edu.nyu.cess.scene.SceneNavigator;
 import javafx.application.Application;
@@ -19,6 +20,7 @@ public class Main extends Application {
         scenes.put(SceneName.CALIBRATE, "/calibrate.fxml");
         scenes.put(SceneName.CONNECT_WAIT, "/wait.fxml");
 
+        primaryStage.setOnCloseRequest(e -> NetworkConnection.close());
         SceneNavigator.initialize(primaryStage, scenes);
         SceneNavigator.setScene(SceneName.CONNECT);
         SceneNavigator.show();

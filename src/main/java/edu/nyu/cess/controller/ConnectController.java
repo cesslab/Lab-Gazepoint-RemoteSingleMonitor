@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.prefs.Preferences;
 
 public class ConnectController implements Initializable, Swappable {
     @FXML
@@ -31,8 +32,12 @@ public class ConnectController implements Initializable, Swappable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        portTextField.setText("4242");
+        Preferences pref = Preferences.userNodeForPackage(ConnectController.class);
+        String ipAddress = pref.get("ipAddress", "");
+        ipTextField.setText(ipAddress);
 
+        String port = pref.get("port", "4242");
+        portTextField.setText(port);
     }
 
     @FXML
@@ -43,14 +48,18 @@ public class ConnectController implements Initializable, Swappable {
         NetworkConnection.connect(ipAddress, port, e->connectionSucceeded(), e->connectionFailed());
     }
 
-    private static void connectionFailed() {
+    private void connectionFailed() {
         SceneNavigator.setScene(SceneName.CONNECT);
         SceneNavigator.displaySlidingMessage("Connection Failed!");
     }
 
-    private static void connectionSucceeded() {
+    private void connectionSucceeded() {
         SceneNavigator.setScene(SceneName.CALIBRATE);
         SceneNavigator.displaySlidingMessage("Connected.");
+
+        Preferences pref = Preferences.userNodeForPackage(ConnectController.class);
+        pref.put("ipAddress", ipTextField.getText());
+        pref.put("port", portTextField.getText());
     }
 
 }

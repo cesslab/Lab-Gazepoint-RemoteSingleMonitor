@@ -79,7 +79,6 @@ public class SceneNavigator {
 
         Swappable nextController = controllers.get(nextSceneName);
         nextController.onLoad((currentSceneName == null) ? nextSceneName : currentSceneName);
-
         currentSceneName = nextSceneName;
     }
 
