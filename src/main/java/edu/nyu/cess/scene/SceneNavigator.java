@@ -17,7 +17,6 @@ public class SceneNavigator {
 
     private static SceneName currentSceneName;
     private static Stage primaryStage;
-    private static SlidingNotification slidingNotification;
 
     private static boolean scenesLoaded = false;
 
@@ -29,20 +28,11 @@ public class SceneNavigator {
         if (scenesLoaded) {
             return;
         }
-        slidingNotification = new SlidingNotification(primaryStage);
         SceneNavigator.primaryStage = primaryStage;
         loadAllScenes(scenes);
         scenesLoaded = true; // Can't use set setScene() until scene loaded flag is set to true
     }
 
-
-    /**
-     * Displays a sliding notification
-     * @param message The message to display
-     */
-    public static void displaySlidingMessage(String message) {
-        slidingNotification.show(message);
-    }
 
     /**
      * Loads all scenes used by this application.

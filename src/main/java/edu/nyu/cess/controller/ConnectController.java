@@ -50,12 +50,10 @@ public class ConnectController implements Initializable, Swappable {
 
     private void connectionFailed() {
         SceneNavigator.setScene(SceneName.CONNECT);
-        SceneNavigator.displaySlidingMessage("Connection Failed!");
     }
 
     private void connectionSucceeded() {
         SceneNavigator.setScene(SceneName.CALIBRATE);
-        SceneNavigator.displaySlidingMessage("Connected.");
 
         Preferences pref = Preferences.userNodeForPackage(ConnectController.class);
         pref.put("ipAddress", ipTextField.getText());

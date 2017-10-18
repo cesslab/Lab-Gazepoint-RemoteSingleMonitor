@@ -17,7 +17,6 @@ public class ConnectWaitController implements Swappable, Initializable{
     @FXML
     public void cancelButtonClicked() {
         SceneNavigator.setScene(SceneName.CONNECT);
-        SceneNavigator.displaySlidingMessage("Connection Canceled.");
         NetworkConnection.cancelConnect();
     }
 

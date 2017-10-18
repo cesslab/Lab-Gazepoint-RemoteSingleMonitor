@@ -21,6 +21,8 @@ public class Main extends Application {
         scenes.put(SceneName.CONNECT_WAIT, "/wait.fxml");
 
         primaryStage.setOnCloseRequest(e -> NetworkConnection.close());
+        primaryStage.setTitle("CESS Eye Tracker Controller");
+
         SceneNavigator.initialize(primaryStage, scenes);
         SceneNavigator.setScene(SceneName.CONNECT);
         SceneNavigator.show();
