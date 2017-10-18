@@ -7,16 +7,17 @@ import javafx.animation.Timeline;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Region;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class SlidingNotification extends Region {
     private Label textLabel = new Label("");
 
-    public SlidingNotification(MainPane mainPane) {
+    public SlidingNotification(Stage stage) {
         getStyleClass().add("head-hint");
         getChildren().add(textLabel);
 
-        translateYProperty().bind(mainPane.heightProperty().multiply(0.1));
+        translateYProperty().bind(stage.heightProperty().multiply(0.1));
         textLabel.translateYProperty().bind(heightProperty().multiply(0.5).
                 subtract(textLabel.getFont().getSize() + 3));
         textLabel.prefWidthProperty().bind(widthProperty());

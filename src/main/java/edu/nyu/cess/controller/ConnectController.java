@@ -5,14 +5,13 @@ import com.jfoenix.controls.JFXTextField;
 import edu.nyu.cess.net.NetworkConnection;
 import edu.nyu.cess.scene.SceneName;
 import edu.nyu.cess.scene.SceneNavigator;
-import edu.nyu.cess.ui.MainPane;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ConnectController implements Initializable, Updatable {
+public class ConnectController implements Initializable, Swappable {
     @FXML
     private JFXButton connectButton;
     @FXML
@@ -21,7 +20,13 @@ public class ConnectController implements Initializable, Updatable {
     private JFXTextField ipTextField;
 
     @Override
-    public void onNavigateUpdate(SceneName previousSceneName) {
+    public void onLoad(SceneName previousSceneName) {
+
+    }
+
+    @Override
+    public void onUnload() {
+
     }
 
     @Override
@@ -40,11 +45,12 @@ public class ConnectController implements Initializable, Updatable {
 
     private static void connectionFailed() {
         SceneNavigator.setScene(SceneName.CONNECT);
-        MainPane.displaySlidingMessage("Connection Failed!");
+        SceneNavigator.displaySlidingMessage("Connection Failed!");
     }
 
     private static void connectionSucceeded() {
         SceneNavigator.setScene(SceneName.CALIBRATE);
-        MainPane.displaySlidingMessage("Connected.");
+        SceneNavigator.displaySlidingMessage("Connected.");
     }
+
 }

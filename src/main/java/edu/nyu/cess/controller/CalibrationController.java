@@ -14,7 +14,7 @@ import javafx.scene.control.Label;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CalibrationController implements Updatable, Initializable {
+public class CalibrationController implements Swappable, Initializable {
     @FXML
     JFXButton displayScreenButton;
 
@@ -34,7 +34,7 @@ public class CalibrationController implements Updatable, Initializable {
     }
 
     @Override
-    public void onNavigateUpdate(SceneName previousSceneName) {
+    public void onLoad(SceneName previousSceneName) {
         if (showScreenService == null) {
             Task<Boolean> showScreenTask = new ShowCalibrationScreenTask();
             showScreenTask.setOnSucceeded(e -> Platform.runLater(this::screenDisplayed));
@@ -61,6 +61,11 @@ public class CalibrationController implements Updatable, Initializable {
         }
     }
 
+    @Override
+    public void onUnload() {
+
+    }
+
     private void handleServiceRequest(Service service) {
         if (service.getState() == Service.State.SUCCEEDED) {
             service.reset();
@@ -69,7 +74,7 @@ public class CalibrationController implements Updatable, Initializable {
         else if (service.getState() == Service.State.READY) {
             service.start();
         }
-        System.out.println(service.getState().toString());
+        System.out.println("Calibration State: " + service.getState().toString());
 
     }
 
